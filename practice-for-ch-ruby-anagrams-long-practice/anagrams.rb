@@ -11,4 +11,5 @@ end
 
 # p first_anagram?("APPLE", "PEPLA")
 # p first_anagram?("RUBY", "YUBRZ")
-p first_anagram?("GARY", "YRAG")
+# p first_anagram?("GARY", "YRAG")
+p first_anagram?("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "ZYXWVUTSRQPONMLKJIHGFEDCBA")
