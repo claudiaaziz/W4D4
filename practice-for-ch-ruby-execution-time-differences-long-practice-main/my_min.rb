@@ -23,13 +23,13 @@ list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
 def largest_contiguous_subsum(list) # O(n^2)
     combos = []
 
-    (0...list.length).each do |i| 
-        (i...list.length).each do |j|
-            combos << list[i..j] # O(n^2)
+    (0...list.length).each do |i| # n
+        (i...list.length).each do |j| # n/2
+            combos << list[i..j] # O(n/2)
         end
-    end
+    end # O(n^3/4)
 
-    sums = combos.map { |combo| combo.sum } # likely more O(n)
+    sums = combos.map { |combo| combo.sum } # likely more O(n^3/2)
     sums.max # O(n)
 end # O(n^2) + O(2n) #=> drop less-dominant becomes #=> O(n^2)
 
