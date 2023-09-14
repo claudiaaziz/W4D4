@@ -29,9 +29,9 @@ def largest_contiguous_subsum(list) # O(n^2)
         end
     end
 
-    sums = combos.map { |combo| combo.sum } # O(n)
+    sums = combos.map { |combo| combo.sum } # likely more O(n)
     sums.max # O(n)
-end
+end # O(n^2) + O(2n) #=> drop less-dominant becomes #=> O(n^2)
 
 def faster_largest_contiguous_subsum(list) # O(n)
     largest_sum = list.first
@@ -43,11 +43,15 @@ end
 
 list = [5, 3, -7]
 p faster_largest_contiguous_subsum(list) # => 8
+list = [2, 3, -6, 7, -6, 7]
+p faster_largest_contiguous_subsum(list) # => 8 (5 wrong)
+list = [-5, -1, -3]
+p faster_largest_contiguous_subsum(list) # => -1 (-4 wrong)
 
-# possible sub-sums
-[5]           # => 5
-[5, 3]        # => 8 --> we want this one
-[5, 3, -7]    # => 1
-[3]           # => 3
-[3, -7]       # => -4
-[-7]          # => -7
+# # possible sub-sums
+# [5]           # => 5
+# [5, 3]        # => 8 --> we want this one
+# [5, 3, -7]    # => 1
+# [3]           # => 3
+# [3, -7]       # => -4
+# [-7]          # => -7
